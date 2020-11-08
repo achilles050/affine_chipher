@@ -1,0 +1,33 @@
+{% extends 'frontend/base.html' %}
+{% block title %} Affine Cipher{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-3">Affine Cipher Encrypt and Decrypt Page</h1>
+    <p class="lead">k0 can be positive integer only</p>
+    <p class="lead">k1 can be 1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25 only</p>
+    <hr class="my-2">
+    <p>Let's Go</p>
+    <form method="post" action="{% url 'encrypt' %}">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Encrypt">
+    </form>
+    <form method="post" action="{% url 'decrypt' %}">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Decrypt">
+    </form>
+    {% if text %}
+    your text is : {{text}}
+    {% endif %}
+    {% if decrypted %}
+    plaintext is : {{decrypted}}
+    {% endif %}
+    {% if encrypted %}
+    <br>encrypted is : {{encrypted}}
+    {% endif %}
+    {% if k0 != 0 %}
+    <br>k0 is : {{k0}} <br> k1 is : {{k1}}
+    {% endif %}
+</div>
+{% endblock %}
