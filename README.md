@@ -1,1 +1,1 @@
-"# for learn django framework in AL subject 2020"  
+"# for learn django framework in AI subject 2020"  
